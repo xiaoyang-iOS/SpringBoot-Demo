@@ -28,8 +28,8 @@ public class UserService {
         String myName=userInfoEntity.getUname();
         String myTime=getNowTime();
         String mykey=getUUID();
-        userInfoEntity.setCreate_time(myTime);
-        userInfoEntity.setLast_login_time(myTime);
+        userInfoEntity.setCreatetime(myTime);
+        userInfoEntity.setLogintime(myTime);
         userInfoEntity.setMykey(mykey);
         userInfoEntity.setMyfen((long)0);
         try {
@@ -149,7 +149,26 @@ public class UserService {
         }
         return result;
     }
-
+    //获取个人信息
+    public Result getUserInfoService(String uname) {
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setDetail(null);
+        try {
+             UserInfoEntity user=userMapper.findUserByName(uname);
+            if(user==null){
+                result.setMsg("账户不存在！");
+            }else{
+                result.setMsg("获取个人信息成功！");
+                result.setSuccess(true);
+                result.setDetail(user);
+            }
+        }catch (Exception e){
+            result.setMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
     
 
     

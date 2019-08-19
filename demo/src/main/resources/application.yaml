@@ -11,3 +11,5 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: time

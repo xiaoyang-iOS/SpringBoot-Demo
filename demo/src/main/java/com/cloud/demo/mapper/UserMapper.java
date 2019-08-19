@@ -18,10 +18,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 	//判断用户是否存在
-    @Select(value = "select uname,upassword from user_info where uname=#{uname}")
+    @Select(value = "select * from user_info where uname=#{uname}")
     UserInfoEntity findUserByName(@Param("uname") String uname);
     //注册
-    @Insert("insert into user_info values (#{id},#{uname},#{upassword},#{mykey},#{myfen},#{create_time},#{last_login_time})")
+    @Insert("insert into user_info values (#{id},#{uname},#{upassword},#{mykey},#{myfen},#{createtime},#{logintime})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void regist(UserInfoEntity userInfoEntity);
     //插入key
@@ -40,10 +40,12 @@ public interface UserMapper {
     @Update("update user_info set myfen=#{myfen} where mykey=#{mykey}")
     int submitMyfen(@Param("mykey") String mykey,@Param("myfen") Long myfen);
     //设置登录时间
-    @Update("update user_info set last_login_time=#{last_login_time} where uname=#{uname}")
-    void setLoginTime(@Param("uname") String uname,@Param("last_login_time") String last_login_time);
+    @Update("update user_info set logintime=#{logintime} where uname=#{uname}")
+    void setLoginTime(@Param("uname") String uname,@Param("logintime") String logintime);
     //设置注册时间
-    @Update("update user_info set create_time=#{create_time} where uname=#{uname}")
-    void setRegistTime(@Param("uname") String uname,@Param("create_time") String create_time);
-
+    @Update("update user_info set createtime=#{createtime} where uname=#{uname}")
+    void setRegistTime(@Param("uname") String uname,@Param("createtime") String create_time);
+    // //获取个人信息
+    // @Select("select * from user_info where uname=#{uname}")
+    // UserInfoEntity getUserInfoMaper(@Param("uname") String uname);
 }

@@ -96,6 +96,17 @@ public class UserController {
     public Result updatefen(@RequestBody MyfenModel myfenModel) {
         return userService.updateMyfen(myfenModel.getMykey(), Long.parseLong(myfenModel.getMyfen()));
     }
+      
+    /**
+     * 获取个人信息
+     * 
+     * @param user 参数封装
+     * @return Result
+     */
+    @PostMapping(value = "/userinfo")
+    public Result getUserInfo(@RequestBody UserInfoEntity userInfoEntity) {
+        return userService.getUserInfoService(userInfoEntity.getUname());
+    }
 
     /**
      * 获取排名

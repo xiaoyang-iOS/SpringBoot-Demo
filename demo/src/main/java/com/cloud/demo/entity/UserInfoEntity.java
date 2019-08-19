@@ -7,8 +7,8 @@ public class UserInfoEntity {
     private String upassword;
     private Long myfen;
     private String mykey;
-    private String create_time;
-    private String last_login_time;
+    private String createtime;
+    private String logintime;
 
     public Long getId() {
         return id;
@@ -50,26 +50,26 @@ public class UserInfoEntity {
         this.mykey = mykey;
     }
 
-    public String getCreate_time() {
-        return create_time;
+    public String getCreatetime() {
+        return createtime;
     }
 
-    public void setCreate_time(String create_time) {
-        this.create_time = create_time;
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
-    public String getLast_login_time() {
-        return last_login_time;
+    public String getLogintime() {
+        return logintime;
     }
 
-    public void setLast_login_time(String last_login_time) {
-        this.last_login_time = last_login_time;
+    public void setLogintime(String logintime) {
+        this.logintime = logintime;
     }
 
     @Override
     public String toString() {
-        return "UserInfoEntity [create_time=" + create_time + ", id=" + id + ", last_login_time=" + last_login_time
-                + ", myfen=" + myfen + ", mykey=" + mykey + ", uname=" + uname + ", upassword=" + upassword + "]";
+        return "UserInfoEntity [createtime=" + createtime + ", id=" + id + ", logintime=" + logintime + ", myfen="
+                + myfen + ", mykey=" + mykey + ", uname=" + uname + ", upassword=" + upassword + "]";
     }
     
     
