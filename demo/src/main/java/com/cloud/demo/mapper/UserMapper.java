@@ -21,7 +21,7 @@ public interface UserMapper {
     @Select(value = "select * from user_info where uname=#{uname}")
     UserInfoEntity findUserByName(@Param("uname") String uname);
     //注册
-    @Insert("insert into user_info values (#{id},#{uname},#{upassword},#{mykey},#{myfen},#{createtime},#{logintime})")
+    @Insert("insert into user_info values (#{id},#{uname},#{upassword},#{mykey},#{myfen},#{createtime},#{logintime},#{mysign},#{game1},#{game2},#{game3},#{photo})")
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     void regist(UserInfoEntity userInfoEntity);
     //插入key
