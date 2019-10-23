@@ -32,9 +32,6 @@ public class UserService {
         userInfoEntity.setLogintime(myTime);
         userInfoEntity.setMykey(mykey);
         userInfoEntity.setMyfen((long)0);
-        userInfoEntity.setGame1((long)0);
-        userInfoEntity.setGame2((long)0);
-        userInfoEntity.setGame3((long)0);
         userInfoEntity.setPhoto(mykey);
         userInfoEntity.setMysign("玩个游戏，还要写一个签名，我太难了。");
         try {
